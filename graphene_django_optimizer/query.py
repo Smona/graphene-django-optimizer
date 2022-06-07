@@ -211,7 +211,7 @@ class QueryOptimizer(object):
             )
 
             if isinstance(model_field, ManyToOneRel):
-                field_store.only(model_field.field.name)
+                field_store.only(model_field.field.attname)
 
             related_queryset = model_field.related_model.objects.all()
             store.prefetch_related(name, field_store, related_queryset)
